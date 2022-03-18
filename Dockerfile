@@ -23,7 +23,7 @@ USER node
 ENV HOME_DIR=/opt/app \
     NODE_ENV=production \
     PORT=5501
-RUN chmod +x ./shell/run-db-migration.sh
+
 ENTRYPOINT ./shell/run-db-migraton.sh && node server.js
 
 
