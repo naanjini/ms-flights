@@ -1,7 +1,7 @@
 # Alpine Linux-based, tiny Node container:
 FROM node:12-alpine3.9 as base
 
-ADD ./ /opt/app
+COPY ./ /opt/app
 WORKDIR /opt/app
 
 USER root
