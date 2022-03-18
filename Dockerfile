@@ -17,14 +17,13 @@ FROM base as release
 USER root
 RUN npm install --only=production \
  #&& apk add --no-cache tini \
- && chown -R node /opt/app \
- && chmod +x /opt/app/shell/run-db-migration.sh
-
+ && chown -R node /opt/app 
+ 
 USER node
 ENV HOME_DIR=/opt/app \
     NODE_ENV=production \
     PORT=5501
-
+RUN chmod +x ./shell/run-db-migration.sh
 ENTRYPOINT ./shell/run-db-migraton.sh && node server.js
 
 
