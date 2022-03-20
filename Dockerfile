@@ -17,7 +17,8 @@ FROM base as release
 USER root
 RUN npm install --only=production \
  #&& apk add --no-cache tini \
- && chown -R node /opt/app 
+ && chown -R node /opt/app \
+ && chmod +x -R ./shell/ 
  
 USER node
 ENV HOME_DIR=/opt/app \
